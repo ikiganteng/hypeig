@@ -1,13 +1,19 @@
 <?php
-error_reporting(0);
+//error_reporting(0);
 set_time_limit(0);
 date_default_timezone_set('UTC');
 
 require __DIR__ . '/vendor/autoload.php';
+function getVarFromUser($text)
+{
+    echo $text . ': ';
+    $var = trim(fgets(STDIN));
+    return $var;
+}
 
 /////// CONFIG ///////
-$username = 'usernamelu!';
-$password = 'passwordlu!';
+//$username = 'usernamelu!';
+//$password = 'passwordlu!';
 $debug = false; // untuk mengecek ubah ke true
 $truncatedDebug = false;
 $mycount = 0;
@@ -32,6 +38,20 @@ $climate->green()->bold('v1.2'); // menambah kecepatan & menambah delay bypass l
 $climate->out('');
 $climate->green('© Developed by IKIGANTENG (https://github.com/ikiganteng)');
 $climate->out('');
+$climate->out('Please provide login data of your Instagram Account.');
+    $username = getVarFromUser('Login');
+    if (empty($username)) {
+        do {
+            $login = getVarFromUser('Login');
+        } while (empty($username));
+    }
+    sleep(1);
+    $password = getVarFromUser('Password');
+    if (empty($password)) {
+        do {
+            $password = getVarFromUser('Password');
+        } while (empty($password));
+    }
 try {
     $ig->login($username, $password);
    }catch (\Exception $e){
