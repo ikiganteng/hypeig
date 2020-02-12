@@ -45,7 +45,7 @@ while(true){
     try {
     $feed = $ig->timeline->getTimelineFeed();
     $itemsJson = json_decode($feed);
-	  $ikiganteng = rand(5, 9);
+	  $ikiganteng = 9;
     $counsa = 100 % $ikiganteng;
 	  $vprocess = $climate->progress()->total(($counsa * $ikiganteng));
 	  do {
@@ -72,7 +72,7 @@ while(true){
     }else{
     $climate->error(date('H:i:s') .' - Fail to like ');
     }
-    $counter3 = rand(40, 60) + rand(1, 9); // jgn ubah ajg
+    $counter3 = rand(40, 60) + rand(1, 9); // jgn < ajg
     $climate->darkGray('Starting ' . $counter3 . ' second(s) delay for bypassing Instagram limits.');
     $vProgress = $climate->progress()->total($counter3);
     do{
@@ -82,7 +82,7 @@ while(true){
     } while (0 != $counter3);
     }
 	  $climate->out('');
-    $counter3 = 1800; // jgn ubah ajg
+    $counter3 = 1800; // jgn < ajg
     $climate->error('Starting ' . $counter3 . ' second(s) delay for sleep.');
     $vProgress = $climate->progress()->total($counter3);
     do {
