@@ -59,7 +59,11 @@ $sleep = getVarFromUser('Sleep (3600 or more)');
             $sleep = getVarFromUser('Sleep (3600 or more)');
         } while (empty($sleep));
     }
-
+     if ($sleep <= 3600) {
+	do {
+            $sleep = getVarFromUser('Sleep (3600 or more)');
+        } while ($sleep <= 3600);
+    }
 try {
     $ig->login($username, $password);
    }catch (\Exception $e){
