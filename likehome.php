@@ -35,7 +35,7 @@ $climate->green()->bold(
 $climate->out('');
 $climate->green()->bold('BOT Instagram');
 $climate->green()->bold('Like Home');
-$climate->green()->bold('v1.2'); // menambah kecepatan & menambah delay bypass limits
+$climate->green()->bold('v1.4'); // menambah kecepatan & menambah delay bypass limits
 $climate->out('');
 $climate->green('© Developed by IKIGANTENG (https://github.com/ikiganteng)');
 $climate->out('');
@@ -86,7 +86,7 @@ while(true){
     $ikiganteng -= 1;
     } while (0 != $ikiganteng);
     $climate->info('feed home collected.');
-	  $climate->out('');
+    $climate->out('');
     $homecount++;
     $items = $itemsJson->feed_items;
     foreach ($items as $item) {
@@ -109,7 +109,7 @@ while(true){
     }else{
     $climate->error(date('H:i:s') .' - Fail to like ');
     }
-    $counter3 = rand(40, 60) + rand(1, 9); // jgn < ajg
+    $counter3 = rand(60, 80) + rand(1, 9); // jgn < ajg
     $climate->darkGray('Starting ' . $counter3 . ' second(s) delay for bypassing Instagram limits.');
     $vProgress = $climate->progress()->total($counter3);
     do{
