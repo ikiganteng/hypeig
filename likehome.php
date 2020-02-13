@@ -92,7 +92,12 @@ while(true){
     //$cek = file_get_contents("feed.txt");
     //$cek = json_decode($cek);
     //$media_id = $cek->id;
+    try{
     $resp = $ig->media->like($media_id,1);
+    } catch (\InstagramAPI\Exception\FeedbackRequiredException $e) {
+    $climate->darkGray('FeedbackRequired ! Resting during 6 hours before try again.');
+    sleep(6*3600);
+    }
     $response = json_decode($resp);
     if ($response->status == 'ok') {
     $mycount++;
