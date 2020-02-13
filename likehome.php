@@ -53,6 +53,13 @@ $climate->out('Please provide login data of your Instagram Account.');
             $password = getVarFromUser('Password');
         } while (empty($password));
     }
+$sleep = getVarFromUser('Sleep (3600)');
+    if (empty($sleep)) {
+        do {
+            $sleep = getVarFromUser('Sleep (3600)');
+        } while (empty($sleep));
+    }
+
 try {
     $ig->login($username, $password);
    }catch (\Exception $e){
@@ -103,14 +110,13 @@ while(true){
     } while (0 != $counter3);
     }
 	  $climate->out('');
-    $counter3 = 1800; // jgn < ajg
-    $climate->error('Starting ' . $counter3 . ' second(s) delay for sleep.');
-    $vProgress = $climate->progress()->total($counter3);
+    $climate->error('Starting ' . $sleep . ' second(s) delay for sleep.');
+    $vProgress = $climate->progress()->total($sleep);
     do {
-    $vProgress->advance(1, $counter3. 'second(s) left');
+    $vProgress->advance(1, $sleep. 'second(s) left');
     sleep(1);
-    $counter3 -= 1;
-    } while (0 != $counter3);
+    $sleep -= 1;
+    } while (0 != $sleep);
     $climate->out('');
     } catch (\Exception $e) {
     echo 'Something went wrong: '.$e->getMessage()."\n";
