@@ -53,10 +53,10 @@ $climate->out('Please provide login data of your Instagram Account.');
             $password = getVarFromUser('Password');
         } while (empty($password));
     }
-$sleep = getVarFromUser('Sleep (3600)');
+$sleep = getVarFromUser('Sleep (3600 or more)');
     if (empty($sleep)) {
         do {
-            $sleep = getVarFromUser('Sleep (3600)');
+            $sleep = getVarFromUser('Sleep (3600 or more)');
         } while (empty($sleep));
     }
 
